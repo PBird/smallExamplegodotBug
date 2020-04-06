@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sheet.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Skeleton2D/Bone2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 189.937, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Skeleton2D/Bone2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 102.668, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygons" type="Node2D" parent="."]
+
+[node name="Body" type="Polygon2D" parent="Polygons"]
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 157.68, 57.9937, 147.962, 29.1536, 148.903, 6.26959, 174.922, -4.38872, 225.705, 0.313478, 239.498, 38.558, 218.809, 56.1128, 239.498, 81.1912, 231.034, 103.135, 216.301, 118.495, 185.58, 121.317, 160.502, 111.285, 148.903, 96.2382, 144.514, 69.5925 )
+uv = PoolVector2Array( 157.68, 57.9937, 147.962, 29.1536, 148.903, 6.26959, 174.922, -4.38872, 225.705, 0.313478, 239.498, 38.558, 218.809, 56.1128, 239.498, 81.1912, 231.034, 103.135, 216.301, 118.495, 185.58, 121.317, 160.502, 111.285, 148.903, 96.2382, 144.514, 69.5925 )
+bones = [ NodePath("Bone2D"), PoolRealArray( 1, 1, 0.54, 0.54, 0.54, 1, 1, 1, 1, 1, 1, 1, 1, 1 ) ]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+rotation = -0.00453915
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+position = Vector2( 189.937, 102.668 )
+rest = Transform2D( 2.22127e-06, -1, 1, 2.22127e-06, 189.937, 102.668 )
+default_length = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 1 )
